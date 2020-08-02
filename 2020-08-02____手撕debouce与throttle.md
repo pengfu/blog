@@ -30,5 +30,5 @@ const throttle = (func, limit) => {
 ```
 
 参考：
-[Throttling and Debouncing in JavaScript](https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf "Throttling and Debouncing in JavaScript")
-[在线实时编辑md](http://www.mdeditor.com/ "在线实时编辑md")
+1. [Throttling and Debouncing in JavaScript](https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf "Throttling and Debouncing in JavaScript")
+2. [在线实时编辑md](http://www.mdeditor.com/ "在线实时编辑md")
