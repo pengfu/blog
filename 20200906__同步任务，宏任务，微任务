@@ -1,0 +1,18 @@
+# 同步任务 微任务队列  宏任务队列
+正确的执行顺序是： 
+sync tasks → micro tasks → macro tasks
+
+```javascript
+console.log(1)
+setTimeout(() => {
+  console.log(2)
+});
+Promise.resolve().then(() => console.log(3))
+console.log(4)
+```
+
+打印的log即将为
+1 4 3 2 
+
+参考：
+[https://medium.com/swlh/a-practical-guide-to-macro-tasks-micro-tasks-and-queuemicrotask-in-javascript-ca65c393699e](https://medium.com/swlh/a-practical-guide-to-macro-tasks-micro-tasks-and-queuemicrotask-in-javascript-ca65c393699e "https://medium.com/swlh/a-practical-guide-to-macro-tasks-micro-tasks-and-queuemicrotask-in-javascript-ca65c393699e")
