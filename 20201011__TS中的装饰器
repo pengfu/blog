@@ -1,0 +1,26 @@
+装饰器模式是设计模式的一种，是为已有功能动态的添加更多功能的一种方式。重点体现了设计模式六大原则之中的单一职责原则和开闭原则。
+单一职责很好理解，就是专心，就是一个函数只做一件事情。开闭原则是指要对扩展开放，对修改关闭。
+
+看js中函数装饰器的一个原理代码示例：
+
+```javascript
+function log(target, name, descriptor) {
+  var oldValue = descriptor.value
+  descriptor.value = function () {
+    console.log(`Calling "${name}" with`, arguments)
+    return oldValue.apply(null, arguments)
+  }
+  return descriptor
+}
+// ⽇日志应⽤用
+class Maths {
+  @log
+  add(a, b) {
+    return a + b
+  }
+}
+const math = new Maths()
+// passed parameters should get logged now 
+math.add(2, 4);
+
+```
