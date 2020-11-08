@@ -12,6 +12,25 @@
       }
     }
 ```
+一个使用react自定义hook实现的debouce可以参考：
+```javascript
+import { useState, useEffect } from 'react'
+
+function useDebounce(value: any, delay = 300) {
+  const [debouncedValue, setDebouncedValue] = useState(value)
+  useEffect(() => {
+    const handler = window.setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value, delay])
+  return debouncedValue
+}
+
+export default useDebounce;
+```
 
 **throttle，节流**，连续触发事件，但是在一段时间内只执行一次函数。
 ```javascript
