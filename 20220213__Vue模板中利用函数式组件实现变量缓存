@@ -1,0 +1,21 @@
+Vue中可以利用函数式组件，作用域插槽特性实现在模板中变量的缓存，相信有一定开发经验的读者一定会觉得这个特性非常有用。
+
+// tempVar.js
+export default {
+  functional: true,
+  render: (h, ctx) => {
+    return ctx.scopedSlots.default && ctx.scopedSlots.default(ctx.props || {})
+  }
+}
+
+
+使用示例，
+import tempVar from './tempVar.js'
+
+<template>
+<tempVar :var1="hello ${name}" :var2="flag? 'open':'closed'">
+  <template v-slot="{var1,var2}">
+  {{var1}} {{var2}}
+  </template>
+</tempVar>
+</template>
